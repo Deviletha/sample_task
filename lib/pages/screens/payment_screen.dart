@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample_task/Utils/constants/color_constants.dart';
+import 'package:sample_task/pages/screens/widget/card_widget.dart';
 import 'package:sample_task/pages/screens/widget/default_widget.dart';
 import 'package:sample_task/pages/screens/widget/payment_overview_widget.dart';
 import 'package:sample_task/pages/screens/widget/payment_widget.dart';
@@ -28,7 +29,7 @@ class Payment_screen extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        child: Column(
+        child: Column(mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Transaction_limit(),
             Default(),
@@ -41,16 +42,12 @@ class Payment_screen extends StatelessWidget {
               child: Divider(thickness: 3, color: ColorConstant.grey),
             ),
             Payment_Overviw(),
-            Row(
-              children: [
-                Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: ColorConstant.orange),
-                ),
-              ],
-            )
+            Payment_Card(),
+            const Text(
+              'Transactions',
+              style: TextStyle(
+                  fontSize: 16, fontWeight: FontWeight.bold),
+            ),
           ],
         ),
       ),
