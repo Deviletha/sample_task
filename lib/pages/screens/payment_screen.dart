@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sample_task/Utils/constants/color_constants.dart';
 import 'package:sample_task/pages/screens/widget/card_widget.dart';
+import 'package:sample_task/pages/screens/widget/chip_widget.dart';
 import 'package:sample_task/pages/screens/widget/default_widget.dart';
 import 'package:sample_task/pages/screens/widget/payment_overview_widget.dart';
 import 'package:sample_task/pages/screens/widget/payment_widget.dart';
@@ -48,6 +49,10 @@ class Payment_screen extends StatelessWidget {
               style: TextStyle(
                   fontSize: 16, fontWeight: FontWeight.bold),
             ),
+            SizedBox(
+              height: 10,
+            ),
+            Chip1()
           ],
         ),
       ),
