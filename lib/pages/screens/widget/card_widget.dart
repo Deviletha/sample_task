@@ -12,7 +12,7 @@ class Payment_Card extends StatelessWidget {
         children: [
           Container(
             height: 70,
-            width: 160,
+            width: MediaQuery.of(context).size.width/2,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(7),
                 color: ColorConstant.orange),
@@ -26,7 +26,7 @@ class Payment_Card extends StatelessWidget {
           ),
           Container(
             height: 70,
-            width: 160,
+            width: MediaQuery.of(context).size.width/2,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(7),
                 color: ColorConstant.green),

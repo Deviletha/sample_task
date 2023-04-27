@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample_task/Utils/constants/color_constants.dart';
-import 'package:sample_task/pages/screens/widget/card1.dart';
+import 'package:sample_task/pages/screens/widget/transaction_card.dart';
 import 'package:sample_task/pages/screens/widget/card_widget.dart';
 import 'package:sample_task/pages/screens/widget/chip_widget.dart';
 import 'package:sample_task/pages/screens/widget/default_widget.dart';
@@ -51,6 +51,7 @@ class Payment_screen extends StatelessWidget {
               height: 10,
             ),
             Chip1(),
+            Transactions()
           ],
         ),
       ),

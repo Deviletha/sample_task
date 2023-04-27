@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sample_task/Utils/constants/color_constants.dart';
+void main(){
+  runApp( Transactions());
+}
 
 class Transactions extends StatelessWidget {
   //Transactions({Key? key}) : super(key: key);
@@ -36,13 +39,15 @@ class Transactions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
+      physics:  NeverScrollableScrollPhysics(),
       itemCount: title.length,
       itemBuilder: (context, index) {
         return Card(
           child: ListTile(
             title: Row(
               children: [
-                Text(title[index], style: TextStyle(color: ColorConstant.black)),
+                Text( title[index], style: TextStyle(color: ColorConstant.black)),
                 Text(rate[index], style: TextStyle(color: ColorConstant.blue)),
               ],
             ),
@@ -54,3 +59,47 @@ class Transactions extends StatelessWidget {
     );
   }
 }
+
+// class CustomContainer extends StatelessWidget{
+//   final String img;
+//   // final String title;
+//   // final String subtitle;
+//   // final String price;
+//   // final String subtitletwo;
+//   // final String subtile;
+//
+//   CustomContainer({
+//     required this.img,
+//     // required this.title,
+//     // required this.subtitle,
+//     // required this.price,
+//     // required this.subtitletwo,
+//     // required this.subtile
+//   });
+//
+//   @override
+//   Widget build(BuildContext context) {
+//    return Container(
+//
+//      child: Row(
+//        children: [
+//          SizedBox(width:40,height: 40,child: Image(image:NetworkImage(img),fit:BoxFit.contain,)),
+//     //      Column(
+//     //        children: [
+//     //          Text(title),
+//     // ]
+//
+//          //     Text(subtitle),
+//          //   ],
+//          // ),
+//          // Column(
+//          //   children: [
+//          //     Text(price),
+//          //     Text(subtitletwo),
+//          //   ],
+//          // ),
+//          // Text(subtile),
+//        ],
+//      ),
+//    );
+//   }
