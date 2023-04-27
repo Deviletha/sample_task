@@ -33,6 +33,14 @@ class Transactions extends StatelessWidget {
     "Mar 29, 08:12 AM"
   ];
 
+  List<String> price2 = [
+    "₹799  deposited to 58860200000138",
+    "₹397.4 deposited to 58860200000138",
+    "₹686.42 deposited to 58860200000138",
+    "₹1123.5 deposited to 58860200000138",
+    "₹369.56 deposited to 58860200000138"
+  ];
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -41,28 +49,35 @@ class Transactions extends StatelessWidget {
       itemCount: title.length,
       itemBuilder: (context, index) {
         return Card(
-          child: ListTile(
-            title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text( title[index], style: TextStyle(color: ColorConstant.black)),
-
-                Text(rate[index], style: TextStyle(color: ColorConstant.blue)),
-              ],
-            ),
-            subtitle: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(date[index]),
-                Row(
+          child: Column(mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ListTile(
+                title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CircleAvatar(radius: 5,backgroundColor: ColorConstant.green,),
-                    SizedBox(width: 10,),
-                    Text("Successful")
+                    Text( title[index], style: TextStyle(color: ColorConstant.black)),
+
+                    Text(rate[index], style: TextStyle(color: ColorConstant.blue)),
                   ],
                 ),
-              ],
-            ),
-            leading: Image.network(images[index],height: 50,width: 50,fit: BoxFit.fill,),
+                subtitle: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(date[index]),
+                    Row(
+                      children: [
+                        CircleAvatar(radius: 5,backgroundColor: ColorConstant.green,),
+                        SizedBox(width: 10,),
+                        Text("Successful")
+                      ],
+                    ),
+                  ],
+                ),
+                leading: Image.network(images[index],height: 50,width: 50,fit: BoxFit.cover,),
+              ),
+              Text(price2[index],style: TextStyle(fontSize: 10, color: ColorConstant.black),)
+            ],
           ),
+
         );
       },
     );

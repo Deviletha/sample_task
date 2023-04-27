@@ -3,9 +3,8 @@ import 'package:sample_task/Utils/constants/color_constants.dart';
 import 'package:sample_task/pages/screens/widget/transaction_card.dart';
 import 'package:sample_task/pages/screens/widget/card_widget.dart';
 import 'package:sample_task/pages/screens/widget/chip_widget.dart';
-import 'package:sample_task/pages/screens/widget/default_widget.dart';
 import 'package:sample_task/pages/screens/widget/payment_overview_widget.dart';
-import 'package:sample_task/pages/screens/widget/payment_widget.dart';
+import 'package:sample_task/pages/screens/widget/default_payment.dart';
 import 'package:sample_task/pages/screens/widget/transaction_limit.dart';
 
 class Payment_screen extends StatelessWidget {
@@ -32,19 +31,24 @@ class Payment_screen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(7),
+          padding: const EdgeInsets.all(10),
           child: Column(mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Transaction_limit(),
-              Default(),
               SizedBox(
                 height: 15,
               ),
               Payment_profile(),
               Divider(thickness: 3, color: ColorConstant.grey),
               Payment_Overviw(),
+              SizedBox(
+                height: 10,
+              ),
               Payment_Card(),
+              SizedBox(
+                height: 10,
+              ),
               Text(
                 'Transactions',
                 style: TextStyle(
