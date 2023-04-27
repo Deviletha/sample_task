@@ -46,7 +46,14 @@ class Payment_screen extends StatelessWidget {
             ),
             Payment_Overviw(),
             Payment_Card(),
-            text1(),
+            Padding(
+              padding: const EdgeInsets.all(7),
+              child: Text(
+                'Transactions',
+                style: TextStyle(
+                    fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
             SizedBox(
               height: 10,
             ),
@@ -56,14 +63,6 @@ class Payment_screen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Text text1() {
-    return Text(
-            'Transactions',
-            style: TextStyle(
-                fontSize: 16, fontWeight: FontWeight.bold),
-          );
   }
 }
 
