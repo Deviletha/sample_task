@@ -6,40 +6,37 @@ class Payment_Card extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(7),
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            height: 70,
-            width: 160,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(7),
-                color: ColorConstant.orange),
-            child: Column(mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text('AMOUNT ON HOLD',style: TextStyle(fontSize: 14,color: ColorConstant.grey),),
-                Text('₹0',style: TextStyle(fontSize: 18,color: ColorConstant.grey),),
-              ],
-            ),
+    return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Container(
+          height: 70,
+          width: 160,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(7),
+              color: ColorConstant.orange),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text('AMOUNT ON HOLD',style: TextStyle(fontSize: 14,color: ColorConstant.grey),),
+              Text('₹0',style: TextStyle(fontSize: 18,color: ColorConstant.grey),),
+            ],
           ),
-          Container(
-            height: 70,
-            width: 160,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(7),
-                color: ColorConstant.green),
-            child: Column(mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text('AMOUNT RECIEVED',style: TextStyle(fontSize: 14,color: ColorConstant.grey),),
-                Text('₹13,332',style: TextStyle(fontSize: 18,color: ColorConstant.grey),),
-              ],
-            ),
+        ),
+        Container(
+          height: 70,
+          width: 160,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(7),
+              color: ColorConstant.green),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text('AMOUNT RECIEVED',style: TextStyle(fontSize: 14,color: ColorConstant.grey),),
+              Text('₹13,332',style: TextStyle(fontSize: 18,color: ColorConstant.grey),),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

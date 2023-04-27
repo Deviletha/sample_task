@@ -19,7 +19,7 @@ class Payment_screen extends StatelessWidget {
         leading: Icon(Icons.arrow_back_ios),
         title: Center(
           child: Text(
-            "Payment",
+            "Payments",
             style: TextStyle(fontSize: 16),
           ),
         ),
@@ -31,35 +31,32 @@ class Payment_screen extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        child: Column(mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Transaction_limit(),
-            Default(),
-            SizedBox(
-              height: 15,
-            ),
-            Payment_profile(),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Divider(thickness: 3, color: ColorConstant.grey),
-            ),
-            Payment_Overviw(),
-            Payment_Card(),
-            Padding(
-              padding: const EdgeInsets.all(7),
-              child: Text(
+        child: Padding(
+          padding: const EdgeInsets.all(7),
+          child: Column(mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Transaction_limit(),
+              Default(),
+              SizedBox(
+                height: 15,
+              ),
+              Payment_profile(),
+              Divider(thickness: 3, color: ColorConstant.grey),
+              Payment_Overviw(),
+              Payment_Card(),
+              Text(
                 'Transactions',
                 style: TextStyle(
                     fontSize: 16, fontWeight: FontWeight.bold),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Chip1(),
-            Transactions()
-          ],
+              SizedBox(
+                height: 10,
+              ),
+              Chip1(),
+              Transactions()
+            ],
+          ),
         ),
       ),
     );

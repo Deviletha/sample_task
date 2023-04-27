@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:sample_task/Utils/constants/color_constants.dart';
-void main(){
-  runApp( Transactions());
-}
 
 class Transactions extends StatelessWidget {
   //Transactions({Key? key}) : super(key: key);
   List<String>images = [
-    "https://st3.depositphotos.com/1006899/12789/i/600/depositphotos_127893414-stock-photo-special-offer-sign-symbol.jpg",
-    "https://media.istockphoto.com/id/98026003/photo/tomatoes.jpg?b=1&s=170667a&w=0&k=20&c=MIz_LKVtdnXExJyOG1sltnt9p9Lw_YtsNi_YeCCDnHo=",
-    "https://images.unsplash.com/photo-1488551511020-571c741f122a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-    "https://media.istockphoto.com/id/995518546/photo/assortment-of-colorful-ripe-tropical-fruits-top-view.jpg?b=1&s=170667a&w=0&k=20&c=frnzxYjtn8MP9kpLy7AY2DU_s9ohVBlAflpUacaDx7w=",
-    "https://images.unsplash.com/photo-1553787434-45e1d245bfbb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8b3JnYW5pYyUyMGZvb2R8ZW58MHx8MHx8&w=1000&q=80"
+    "https://images.unsplash.com/photo-1621951753015-740c699ab970?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dCUyMHNoaXJ0JTIwZGVzaWdufGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+    "https://images.unsplash.com/photo-1554200877-40aae1bb6ec1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+    "https://media.istockphoto.com/id/1163083366/photo/indian-traditional-kurti-with-flower-design-pattern.jpg?b=1&s=170667a&w=0&k=20&c=29rOHQiZyY2oVDU5Nxja6ahm3Y-7yt7_fsAdHcOKVEA=",
+    "https://m.media-amazon.com/images/I/717h83InL6L._UL1280_.jpg",
+    "https://media.istockphoto.com/id/516895084/photo/brown-cargo-pants-in-white-studio.jpg?b=1&s=170667a&w=0&k=20&c=50127m-TN_8yGmAhcQVrolL7Kqqoax0KQzEugwrbbtw=",
   ];
   List<String> title = [
     "Order #1688068",
@@ -45,14 +42,26 @@ class Transactions extends StatelessWidget {
       itemBuilder: (context, index) {
         return Card(
           child: ListTile(
-            title: Row(
+            title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text( title[index], style: TextStyle(color: ColorConstant.black)),
+
                 Text(rate[index], style: TextStyle(color: ColorConstant.blue)),
               ],
             ),
-            subtitle: Text(date[index]),
-            leading: Image.network(images[index]),
+            subtitle: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(date[index]),
+                Row(
+                  children: [
+                    CircleAvatar(radius: 5,backgroundColor: ColorConstant.green,),
+                    SizedBox(width: 10,),
+                    Text("Successful")
+                  ],
+                ),
+              ],
+            ),
+            leading: Image.network(images[index],height: 50,width: 50,fit: BoxFit.fill,),
           ),
         );
       },
