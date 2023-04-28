@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
+import 'package:provider/provider.dart';
+import 'package:sample_task/pages/screens/payment_screen.dart';
 
 import '../../../Utils/constants/color_constants.dart';
+import '../../../provider/progress_provider.dart';
 
 class Transaction_limit extends StatelessWidget {
-  const Transaction_limit({Key? key}) : super(key: key);
+  Transaction_limit({Key? key}) : super(key: key);
+  final _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    var value1 = context.watch<ProgressProvider>().progress;
+
     return Container(
       //height: 170,
       decoration: BoxDecoration(
@@ -23,8 +29,7 @@ class Transaction_limit extends StatelessWidget {
           children: [
             Text(
               'Transaction Limit',
-              style: TextStyle(
-                  fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
             Text(
@@ -33,28 +38,54 @@ class Transaction_limit extends StatelessWidget {
                   fontSize: 12,
                 )),
             SizedBox(height: 10),
-            LinearProgressBar(
-              maxSteps: 6,
-              progressType: LinearProgressBar.progressTypeLinear,
-              // Use Linear progress
-              currentStep: 2,
-              progressColor: ColorConstant.blue,
-              backgroundColor: ColorConstant.grey,
-            ),
+            // LinearProgressBar(
+            //   maxSteps: 6,
+            //   progressType: LinearProgressBar.progressTypeLinear,
+            //   // Use Linear progress
+            //   currentStep: 2,
+            //   progressColor: ColorConstant.blue,
+            //   backgroundColor: ColorConstant.grey,
+            // ),
+            LinearProgressIndicator(
+                color: ColorConstant.blue,
+                backgroundColor: ColorConstant.grey,
+                value: context.read<ProgressProvider>().progress),
             SizedBox(height: 10),
-            Text('36668 left out of ₹50000',
+            Text(
+                ' ${context.read<ProgressProvider>().progress} left out of 50000',
                 style: TextStyle(
                   fontSize: 12,
                 )
-              //style: TextStyle(color: ColorConstant.black),
-            ),
+                //style: TextStyle(color: ColorConstant.black),
+                ),
             SizedBox(height: 10),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: ColorConstant.blue),
-              onPressed: () {},
-              child: Text("Increase Limit",
-                  style: TextStyle(fontSize: 14)),
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: ColorConstant.blue),
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (_) {
+                      return AlertDialog(
+                        title: Text("ENTER VALUE"),
+                        content: TextField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(), hintText: "Value"),
+                          controller: _controller,
+                        ),
+                        actions: [
+                          ElevatedButton(
+                              onPressed: () {
+                                var v1 = double.parse(_controller.text);
+                                context.read<ProgressProvider>().setProgress(v1);
+                                Navigator.pop(context);
+                              },
+                              child: Text("Add Limit")),
+                        ],
+                      );
+                    });
+              },
+              child: Text("Increase Limit", style: TextStyle(fontSize: 14)),
             ),
           ],
         ),

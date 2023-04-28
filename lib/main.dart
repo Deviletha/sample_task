@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sample_task/pages/screens/payment_screen.dart';
+import 'package:sample_task/provider/progress_provider.dart';
 
-void main(){
-
-  runApp(const MyApp());
+void main() {
+  runApp(ChangeNotifierProvider<ProgressProvider>(
+    child: MyApp(),
+    create: (_) => ProgressProvider(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

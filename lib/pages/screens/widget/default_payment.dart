@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:sample_task/Utils/constants/color_constants.dart';
 
@@ -20,8 +18,6 @@ class Payment_profile extends StatelessWidget {
   }
 }
 
-
-
 class DefaultPayment extends StatelessWidget {
   const DefaultPayment({
     required this.tittle,
@@ -35,20 +31,23 @@ class DefaultPayment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           tittle,
-          style: TextStyle(fontSize: 14,color: ColorConstant.black),
+          style: TextStyle(fontSize: 14, color: ColorConstant.black),
         ),
-
         Row(
           children: [
             Text(
               sub_tittle,
-              style: TextStyle(fontSize: 12,color: Colors.grey),
+              style: TextStyle(fontSize: 12, color: Colors.grey),
             ),
-            const Icon(Icons.arrow_forward_ios_sharp, size: 12, color: Colors.grey,),
+            const Icon(
+              Icons.arrow_forward_ios_sharp,
+              size: 12,
+              color: Colors.grey,
+            ),
           ],
         ),
       ],
