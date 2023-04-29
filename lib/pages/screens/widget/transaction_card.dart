@@ -12,6 +12,8 @@ class Transactions extends StatelessWidget {
 
     return Scaffold(
       body: ListView.builder(
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
         itemCount: progressProvider.myList.length,
         itemBuilder: (context, index) {
           final transaction = progressProvider.myList[index];
@@ -68,7 +70,7 @@ class Transactions extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Add a new transaction to the list
+          // for add transaction to the list
           var newTransaction = Transaction(
             image: "https://...",
             title: "New Transaction",
