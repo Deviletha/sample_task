@@ -12,11 +12,25 @@ class ProgressProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List list =[];
-  List get mylist => list;
+  List<Transaction> _myList = [];
 
-  void addtoList(Data data){
-    list.add(data);
+  List<Transaction> get myList => _myList;
+
+  void addTransaction(Transaction transaction) {
+    _myList.add(transaction);
     notifyListeners();
   }
+
+  void removeTransaction(int index) {
+    _myList.removeAt(index);
+    notifyListeners();
+  }
+
+  // List list =[];
+  // List get mylist => list;
+  //
+  // void addToList(Data data){
+  //   list.add(data);
+  //   notifyListeners();
+  // }
 }
