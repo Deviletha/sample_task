@@ -26,11 +26,4 @@ class ProgressProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  // List list =[];
-  // List get mylist => list;
-  //
-  // void addToList(Data data){
-  //   list.add(data);
-  //   notifyListeners();
-  // }
 }

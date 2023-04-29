@@ -86,11 +86,7 @@ class Transactions extends StatelessWidget {
 
 
 
-// import 'package:flutter/material.dart';
-// import 'package:sample_task/Utils/constants/color_constants.dart';
-// import 'package:sample_task/provider/progress_provider.dart';
-// import 'package:provider/provider.dart';
-//
+
 // class Transactions extends StatelessWidget {
 //   //Transactions({Key? key}) : super(key: key);
 //   // List<String>images = [
