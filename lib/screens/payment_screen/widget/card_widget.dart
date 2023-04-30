@@ -7,11 +7,13 @@ class Amountcard extends StatelessWidget {
   const Amountcard({
     required this.text1,
     required this.text2,
+    required this.color,
   super.key,
   });
 
   final String text1;
   final String text2;
+  final color;
 
 
   @override
@@ -21,7 +23,7 @@ class Amountcard extends StatelessWidget {
       width: 160,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(7),
-          color: ColorConstant.orange),
+          color: color),
       child: Column(mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

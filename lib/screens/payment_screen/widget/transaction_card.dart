@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../model/datamodel.dart';
 import '../../../provider/progress_provider.dart';
 
 class Transactions extends StatelessWidget {
@@ -10,8 +9,8 @@ class Transactions extends StatelessWidget {
   Widget build(BuildContext context) {
     var progressProvider = Provider.of<ProgressProvider>(context);
 
-    return Scaffold(
-      body: ListView.builder(
+    return Container(
+      child: ListView.builder(
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemCount: progressProvider.myList.length,
@@ -68,20 +67,20 @@ class Transactions extends StatelessWidget {
           );
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // for add transaction to the list
-          var newTransaction = Transaction(
-            image: "https://...",
-            title: "New Transaction",
-            rate: "₹999",
-            date: "May 1, 2023",
-            price: "₹999 deposited to 1234567890",
-          );
-          progressProvider.addTransaction(newTransaction);
-        },
-        child: Icon(Icons.add),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     // for add transaction to the list
+      //     var newTransaction = Transaction(
+      //       image: "https://...",
+      //       title: "New Transaction",
+      //       rate: "₹999",
+      //       date: "May 1, 2023",
+      //       price: "₹999 deposited to 1234567890",
+      //     );
+      //     progressProvider.addTransaction(newTransaction);
+      //   },
+      //   child: Icon(Icons.add),
+      // ),
     );
   }
 }
