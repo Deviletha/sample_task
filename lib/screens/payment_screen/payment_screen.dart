@@ -7,7 +7,6 @@ import 'package:sample_task/screens/payment_screen/widget/default_payment.dart';
 import 'package:sample_task/screens/payment_screen/widget/payment_overview_widget.dart';
 import 'package:sample_task/screens/payment_screen/widget/transaction_card.dart';
 import 'package:sample_task/screens/payment_screen/widget/transaction_limit.dart';
-
 import '../../model/datamodel.dart';
 import '../../provider/progress_provider.dart';
 
