@@ -67,20 +67,6 @@ class Transactions extends StatelessWidget {
           );
         },
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {
-      //     // for add transaction to the list
-      //     var newTransaction = Transaction(
-      //       image: "https://...",
-      //       title: "New Transaction",
-      //       rate: "₹999",
-      //       date: "May 1, 2023",
-      //       price: "₹999 deposited to 1234567890",
-      //     );
-      //     progressProvider.addTransaction(newTransaction);
-      //   },
-      //   child: Icon(Icons.add),
-      // ),
     );
   }
 }

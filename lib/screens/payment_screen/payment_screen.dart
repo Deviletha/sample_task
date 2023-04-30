@@ -6,17 +6,18 @@ import 'package:sample_task/screens/payment_screen/widget/transaction_chip.dart'
 import 'package:sample_task/screens/payment_screen/widget/default_payment.dart';
 import 'package:sample_task/screens/payment_screen/widget/payment_overview_widget.dart';
 import 'package:sample_task/screens/payment_screen/widget/transaction_card.dart';
-import 'package:sample_task/screens/payment_screen/widget/transaction_limit.dart';
 import '../../model/datamodel.dart';
 import '../../provider/progress_provider.dart';
 
 class Payment_screen extends StatelessWidget {
-  const Payment_screen({Key? key}) : super(key: key);
+  Payment_screen({Key? key}) : super(key: key);
+  final _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
 
     var progressProvider = Provider.of<ProgressProvider>(context);
+    var value1 = context.watch<ProgressProvider>().progress;
 
     return Scaffold(
       appBar: AppBar(
@@ -41,7 +42,74 @@ class Payment_screen extends StatelessWidget {
           child: Column(mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Transaction_limit(),
+              Container(
+                decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 2,
+                      color: ColorConstant.grey,
+                    ),
+                    borderRadius: BorderRadius.circular(4)),
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Transaction Limit',
+                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                          "A free limit upto which you will recieve the online payments directly in your bank",
+                          style: TextStyle(
+                            fontSize: 12,
+                          )),
+                      SizedBox(height: 10),
+                      LinearProgressIndicator(
+                          color: ColorConstant.blue,
+                          backgroundColor: ColorConstant.grey,
+                          value: context.read<ProgressProvider>().progress),
+                      SizedBox(height: 10),
+                      Text(
+                          ' ${context.read<ProgressProvider>().progress} left out of 50000',
+                          style: TextStyle(
+                            fontSize: 12,
+                          )
+                        //style: TextStyle(color: ColorConstant.black),
+                      ),
+                      SizedBox(height: 10),
+                      ElevatedButton(
+                        style:
+                        ElevatedButton.styleFrom(backgroundColor: ColorConstant.blue),
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (_) {
+                                return AlertDialog(
+                                  title: Text("ENTER VALUE"),
+                                  content: TextField(
+                                    decoration: InputDecoration(
+                                        border: OutlineInputBorder(), hintText: "Value"),
+                                    controller: _controller,
+                                  ),
+                                  actions: [
+                                    ElevatedButton(
+                                        onPressed: () {
+                                          var v1 = double.parse(_controller.text);
+                                          context.read<ProgressProvider>().setProgress(v1);
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text("Add Limit")),
+                                  ],
+                                );
+                              });
+                        },
+                        child: Text("Increase Limit", style: TextStyle(fontSize: 14)),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               SizedBox(
                 height: 15,
               ),
