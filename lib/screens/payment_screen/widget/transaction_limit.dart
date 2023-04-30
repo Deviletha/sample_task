@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:provider/provider.dart';
-import 'package:sample_task/pages/screens/payment_screen.dart';
 
 import '../../../Utils/constants/color_constants.dart';
 import '../../../provider/progress_provider.dart';

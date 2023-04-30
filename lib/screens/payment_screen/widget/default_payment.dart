@@ -1,23 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample_task/Utils/constants/color_constants.dart';
 
-class Payment_profile extends StatelessWidget {
-  const Payment_profile({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        DefaultPayment(tittle: "Default Method", sub_tittle: "Online Payments"),
-        SizedBox(
-          height: 10,
-        ),
-        DefaultPayment(tittle: "Payment Profile", sub_tittle: "Bank Account"),
-      ],
-    );
-  }
-}
-
 class DefaultPayment extends StatelessWidget {
   const DefaultPayment({
     required this.tittle,

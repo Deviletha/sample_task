@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Payment_Overviw extends StatelessWidget {
-  const Payment_Overviw({Key? key}) : super(key: key);
+class PaymentOverview extends StatelessWidget {
+  const PaymentOverview({
+    required this.tittle1,
+    required this.sub_tittle1,
+    super.key,
+  });
+
+  final String tittle1;
+  final String sub_tittle1;
 
   @override
   Widget build(BuildContext context) {
@@ -9,12 +16,12 @@ class Payment_Overviw extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'Payments Overview',
+          tittle1,
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         Row(
           children: [
-            Text('Life Time',
+            Text(sub_tittle1,
                 style: TextStyle(fontSize: 12, color: Colors.grey)),
             Icon(
               Icons.arrow_downward_rounded,
