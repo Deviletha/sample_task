@@ -62,7 +62,7 @@ class Payment_screen extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       Text(
-                          "A free limit upto which you will recieve the online payments directly in your bank",
+                          "A free limit up to which you will receive the online payments directly in your bank",
                           style: TextStyle(
                             fontSize: 12,
                           )),
