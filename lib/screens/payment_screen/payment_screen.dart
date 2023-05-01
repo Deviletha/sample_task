@@ -6,7 +6,7 @@ import 'package:sample_task/screens/payment_screen/widget/transaction_chip.dart'
 import 'package:sample_task/screens/payment_screen/widget/default_payment.dart';
 import 'package:sample_task/screens/payment_screen/widget/payment_overview_widget.dart';
 import 'package:sample_task/screens/payment_screen/widget/transaction_card.dart';
-import '../../model/datamodel.dart';
+import '../../model/data_model.dart';
 import '../../provider/progress_provider.dart';
 
 class Payment_screen extends StatelessWidget {
@@ -16,7 +16,6 @@ class Payment_screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     var progressProvider = Provider.of<ProgressProvider>(context);
     var value1 = context.watch<ProgressProvider>().progress;
 
@@ -40,7 +39,8 @@ class Payment_screen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10),
-          child: Column(mainAxisAlignment: MainAxisAlignment.start,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
@@ -57,7 +57,8 @@ class Payment_screen extends StatelessWidget {
                     children: [
                       Text(
                         'Transaction Limit',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 10),
                       Text(
@@ -76,12 +77,12 @@ class Payment_screen extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 12,
                           )
-                        //style: TextStyle(color: ColorConstant.black),
-                      ),
+                          //style: TextStyle(color: ColorConstant.black),
+                          ),
                       SizedBox(height: 10),
                       ElevatedButton(
-                        style:
-                        ElevatedButton.styleFrom(backgroundColor: ColorConstant.blue),
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: ColorConstant.blue),
                         onPressed: () {
                           showDialog(
                               context: context,
@@ -90,14 +91,18 @@ class Payment_screen extends StatelessWidget {
                                   title: Text("ENTER VALUE"),
                                   content: TextField(
                                     decoration: InputDecoration(
-                                        border: OutlineInputBorder(), hintText: "Value"),
+                                        border: OutlineInputBorder(),
+                                        hintText: "Value"),
                                     controller: _controller,
                                   ),
                                   actions: [
                                     ElevatedButton(
                                         onPressed: () {
-                                          var v1 = double.parse(_controller.text);
-                                          context.read<ProgressProvider>().setProgress(v1);
+                                          var v1 =
+                                              double.parse(_controller.text);
+                                          context
+                                              .read<ProgressProvider>()
+                                              .setProgress(v1);
                                           Navigator.pop(context);
                                         },
                                         child: Text("Add Limit")),
@@ -105,7 +110,8 @@ class Payment_screen extends StatelessWidget {
                                 );
                               });
                         },
-                        child: Text("Increase Limit", style: TextStyle(fontSize: 14)),
+                        child: Text("Increase Limit",
+                            style: TextStyle(fontSize: 14)),
                       ),
                     ],
                   ),
@@ -116,22 +122,34 @@ class Payment_screen extends StatelessWidget {
               ),
               Column(
                 children: [
-                  DefaultPayment(tittle: "Default Method", sub_tittle: "Online Payments"),
+                  DefaultPayment(
+                      tittle: "Default Method", sub_tittle: "Online Payments"),
                   SizedBox(
                     height: 10,
                   ),
-                  DefaultPayment(tittle: "Payment Profile", sub_tittle: "Bank Account"),
+                  DefaultPayment(
+                      tittle: "Payment Profile", sub_tittle: "Bank Account"),
                 ],
               ),
               Divider(thickness: 3, color: ColorConstant.grey),
-              PaymentOverview(tittle1: 'Payments Overview', sub_tittle1: 'Life Time'),
+              PaymentOverview(
+                  tittle1: 'Payments Overview', sub_tittle1: 'Life Time'),
               SizedBox(
                 height: 10,
               ),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Amountcard(text1: "AMOUNT ON HOLD", text2: "₹0", color: ColorConstant.orange,),
-                  Amountcard(text1: 'AMOUNT RECEIVED', text2: '₹13,332', color: ColorConstant.green,)
+                  Amountcard(
+                    text1: "AMOUNT ON HOLD",
+                    text2: "₹0",
+                    color: ColorConstant.orange,
+                  ),
+                  Amountcard(
+                    text1: 'AMOUNT RECEIVED',
+                    text2: '₹13,332',
+                    color: ColorConstant.green,
+                  )
                 ],
               ),
               SizedBox(
@@ -139,20 +157,30 @@ class Payment_screen extends StatelessWidget {
               ),
               Text(
                 'Transactions',
-                style: TextStyle(
-                    fontSize: 16, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 10,
               ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                TRchip(tittle2: "On hold", colr: Colors.grey,colr1: ColorConstant.grey),
-                TRchip(tittle2: "Payouts(15)", colr: Colors.white, colr1: ColorConstant.blue,),
-                TRchip(tittle2: "Refunds", colr: Colors.grey, colr1: ColorConstant.grey,)
-              ],
-            ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TRchip(
+                      tittle2: "On hold",
+                      colr: Colors.grey,
+                      colr1: ColorConstant.grey),
+                  TRchip(
+                    tittle2: "Payouts(15)",
+                    colr: Colors.white,
+                    colr1: ColorConstant.blue,
+                  ),
+                  TRchip(
+                    tittle2: "Refunds",
+                    colr: Colors.grey,
+                    colr1: ColorConstant.grey,
+                  )
+                ],
+              ),
               Transactions()
             ],
           ),
@@ -162,7 +190,7 @@ class Payment_screen extends StatelessWidget {
         onPressed: () {
           // for add transaction to the list
           var newTransaction = Transaction(
-            image: "https://...",
+            image: "https://images.unsplash.com/photo-1621951753015-740c699ab970?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dCUyMHNoaXJ0JTIwZGVzaWdufGVufDB8fDB8fA%3D%3D&w=1000&q=8",
             title: "New Transaction",
             rate: "₹999",
             date: "May 1, 2023",
@@ -175,4 +203,3 @@ class Payment_screen extends StatelessWidget {
     );
   }
 }
-

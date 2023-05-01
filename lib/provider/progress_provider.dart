@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../model/datamodel.dart';
+import '../model/data_model.dart';
 
 class ProgressProvider with ChangeNotifier {
 
