@@ -11,6 +11,7 @@ import '../../provider/progress_provider.dart';
 
 class Payment_screen extends StatelessWidget {
   Payment_screen({Key? key}) : super(key: key);
+
   final _controller = TextEditingController();
 
   @override
@@ -130,7 +131,7 @@ class Payment_screen extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Amountcard(text1: "AMOUNT ON HOLD", text2: "₹0", color: ColorConstant.orange,),
-                  Amountcard(text1: 'AMOUNT RECIEVED', text2: '₹13,332', color: ColorConstant.green,)
+                  Amountcard(text1: 'AMOUNT RECEIVED', text2: '₹13,332', color: ColorConstant.green,)
                 ],
               ),
               SizedBox(
