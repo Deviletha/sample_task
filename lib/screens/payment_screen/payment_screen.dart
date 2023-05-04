@@ -6,7 +6,8 @@ import 'package:sample_task/screens/payment_screen/widget/transaction_chip.dart'
 import 'package:sample_task/screens/payment_screen/widget/default_payment.dart';
 import 'package:sample_task/screens/payment_screen/widget/payment_overview_widget.dart';
 import 'package:sample_task/screens/payment_screen/widget/transaction_card.dart';
-import '../../model/data_model.dart';
+
+import '../../domain/model/data_model.dart';
 import '../../provider/progress_provider.dart';
 
 class Payment_screen extends StatelessWidget {
