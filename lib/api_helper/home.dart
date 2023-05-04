@@ -50,7 +50,7 @@ Future<DataModel> getData(context) async {
         await http.get(Uri.parse("https://api.publicapis.org/entries"));
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
-      dataModel = DataModel.fromjson(data);
+      dataModel = DataModel.fromJson(data);
     } else {
       print("Something went wrong");
     }
