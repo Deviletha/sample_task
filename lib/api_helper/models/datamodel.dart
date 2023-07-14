@@ -1,11 +1,49 @@
-class DataModel {
-  final String API;
-  final String Description;
-  final String Category;
+// To parse this JSON data, do
+//
+//     final entry = entryFromJson(jsonString);
 
-  DataModel({required this.API, required this.Description, required this.Category});
+import 'dart:convert';
 
-  factory DataModel.fromJson(Map<String, dynamic> json){
-    return DataModel(API: json["API"], Description: json["Description"], Category: json["Category"]);
-  }
+Entry entryFromJson(String str) => Entry.fromJson(json.decode(str));
+
+String entryToJson(Entry data) => json.encode(data.toJson());
+
+class Entry {
+  String activity;
+  String type;
+  int participants;
+  double price;
+  String link;
+  String key;
+  double accessibility;
+
+  Entry({
+    required this.activity,
+    required this.type,
+    required this.participants,
+    required this.price,
+    required this.link,
+    required this.key,
+    required this.accessibility,
+  });
+
+  factory Entry.fromJson(Map<String, dynamic> json) => Entry(
+    activity: json["activity"],
+    type: json["type"],
+    participants: json["participants"],
+    price: json["price"]?.toDouble(),
+    link: json["link"],
+    key: json["key"],
+    accessibility: json["accessibility"]?.toDouble(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "activity": activity,
+    "type": type,
+    "participants": participants,
+    "price": price,
+    "link": link,
+    "key": key,
+    "accessibility": accessibility,
+  };
 }

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sample_task/api_helper/models/datamodel.dart';
@@ -24,10 +25,11 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final data = Provider.of<Data>(context);
+    print(data.Entry.activity.toString());
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("API GET"),
+        title: Center(child: Text("API GET")),
       ),
       body: Container(
           child: Center(
@@ -43,19 +45,38 @@ class _HomeState extends State<Home> {
   }
 }
 
-Future<DataModel> getData(context) async {
-  late DataModel dataModel;
+// Future<DataModel?> getData(context) async {
+//   DataModel? dataModel;
+//   try {
+//     final response =
+//         await http.get(Uri.parse("https://api.publicapis.org/entries#  "));
+//     if (response.statusCode == 200) {
+//       final data = json.decode(response.body);
+//       dataModel = DataModel.fromJson(data);
+//     } else {
+//       print("Something went wrong");
+//     }
+//   } catch (e) {
+//     print(e.toString());
+//   }
+//   return dataModel;
+// }
+Future<Entry?> getData(context) async {
+  Entry? result;
   try {
-    final response =
-        await http.get(Uri.parse("https://api.publicapis.org/entries"));
+    final response = await http.get(
+      Uri.parse("https://api.publicapis.org/entries#"),
+      headers: {
+        HttpHeaders.contentTypeHeader: "application/json",
+      },);
     if (response.statusCode == 200) {
-      final data = json.decode(response.body);
-      dataModel = DataModel.fromJson(data);
+      final item = json.decode(response.body);
+      result = Entry.fromJson(item);
     } else {
-      print("Something went wrong");
+      print("error");
     }
   } catch (e) {
     print(e.toString());
   }
-  return dataModel;
+  return result;
 }

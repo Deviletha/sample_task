@@ -4,11 +4,10 @@ import 'home.dart';
 
 class Data extends ChangeNotifier{
 
-
-  late DataModel dataModel;
+  late Entry dataModel;
 
   fetchData(context) async {
-    dataModel = (await getData(context));
+    dataModel = (await getData(context))!;
 
     notifyListeners();
   }
